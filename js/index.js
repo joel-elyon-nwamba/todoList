@@ -16,5 +16,7 @@ const addTask = () => {
     }
 }
 
+addTask();
+
 // Event listener for the add task button
 addTaskButton.addEventListener("click", addTask);
