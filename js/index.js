@@ -1,19 +1,18 @@
 // DOM elementts to integrate 
-const inputTask = document.getElementById("inputTask");
+const inputTask = document.getElementById("taskInput");
 const addTaskButton = document.getElementById("addTaskButton");
 const taskList = document.getElementById("taskList");
 
 // Function to add a task
 const addTask = () => {
-    const taskText = inputTask.value.trim();
-    if (taskText) {
-        const taskItem = document.createElement("li");
-        taskItem.textContent = taskText;
-        taskList.appendChild(taskItem);
-        inputTask.value = ""; // Clear the input field
-    } else {
-        alert("Please enter a task.");
+const itemAdd = inputTask.value;
+    if(itemAdd) {
+        const listItems = document.createElement("li");
+        listItems.classList.add("list-items");
+        listItems.textContent = itemAdd;
+        taskList.appendChild(listItems);
     }
+    inputTask.value = "";
 }
 
 addTask();
