@@ -3,14 +3,24 @@ const inputTask = document.getElementById("taskInput");
 const addTaskButton = document.getElementById("addTaskButton");
 const deleteTaskButton = document.getElementById("deleteTaskButton");
 const taskList = document.getElementById("taskList");
+// const checkbox = document.createElement("input");
+//             checkbox.type = "checkbox";
+//             li.appendChild(checkbox);
+
+//             // Add the task text to the list item
+//             var textNode = document.createTextNode(taskValue);
+//             li.appendChild(textNode);
 
 // Function to add a task
 const addTask = () => {
 const itemAdd = inputTask.value;
     if(itemAdd) {
-        const listItems = document.createElement("li");
-        listItems.classList.add("list-items");
+ const listItems = document.createElement("li");
+ let checkbox = document.createElement("input");
+ checkbox.type = "checkbox";
+listItems.classList.add("list-items");
         listItems.textContent = itemAdd;
+        taskList.appendChild(checkbox);
         taskList.appendChild(listItems);
     }
     inputTask.value = "";
@@ -19,6 +29,10 @@ const itemAdd = inputTask.value;
 const deleteTask = () => {
     listItems.textContent = "";
     listItems.classList.remove("list-items");
+}
+
+const deleteOneTask = () => {
+  
 }
 
 addTask();
