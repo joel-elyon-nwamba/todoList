@@ -1,42 +1,23 @@
-// DOM elementts to integrate 
-const inputTask = document.getElementById("taskInput");
-const addTaskButton = document.getElementById("addTaskButton");
-const deleteTaskButton = document.getElementById("deleteTaskButton");
+// Grab DOM from html
+const taskInput = document.getElementById("taskInput");
 const taskList = document.getElementById("taskList");
-// const checkbox = document.createElement("input");
-//             checkbox.type = "checkbox";
-//             li.appendChild(checkbox);
+const addTaskButton = document.getElementById("addTaskButton");
+const deleteButton = document.getElementById("deleteTaskButton");
+const li = document.createElement("li");
 
-//             // Add the task text to the list item
-//             var textNode = document.createTextNode(taskValue);
-//             li.appendChild(textNode);
-
-// Function to add a task
 const addTask = () => {
-const itemAdd = inputTask.value;
-    if(itemAdd) {
- const listItems = document.createElement("li");
- let checkbox = document.createElement("input");
- checkbox.type = "checkbox";
-listItems.classList.add("list-items");
-        listItems.textContent = itemAdd;
-        taskList.appendChild(checkbox);
-        taskList.appendChild(listItems);
+    const itemInput = taskInput.value;
+    if(itemInput) {
+        li.textContent = itemInput;
+        li.classList.add("item-list");
+        taskList.appendChild(li);
     }
-    inputTask.value = "";
+    taskInput.value = "";
 }
 
-const deleteTask = () => {
-    listItems.textContent = "";
-    listItems.classList.remove("list-items");
+const deleteTask = (li) => {
+    taskList.removeChild(li);
 }
 
-const deleteOneTask = () => {
-  
-}
-
-addTask();
-
-// Event listener for the add task button
 addTaskButton.addEventListener("click", addTask);
-deleteTaskButton.addEventListener("click", deleteTask);
+deleteButton.addEventListener("click", deleteTask(li));
